@@ -1,0 +1,2 @@
+# ba_strategy
+一个基于nonebot框架的用于碧蓝档案主线攻略的插件
