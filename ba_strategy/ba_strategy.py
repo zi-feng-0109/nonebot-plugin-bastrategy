@@ -5,6 +5,7 @@ from nonebot.params import ArgPlainText,CommandArg
 map1=on_command("攻略N",priority=10,block=True)
 map2=on_command("攻略H",priority=10,block=True)
 way=on_command("攻略",priority=10,block=True)
+menu=on_command("帮助",aliases={'help','菜单'},priority=10,block=True)
 
 #千里眼
 clairvoyance=on_command("未来视",aliases={"卡池千里眼","卡池未来视", "千里眼"},priority=10,block=True)
@@ -59,6 +60,10 @@ maph={'6-1':'https://img1.imgtp.com/2023/06/12/jh5akHeT.png','6-2':'https://img1
 ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg','刷初始':'https://img1.imgtp.com/2023/06/20/g8Gin7GP.png'}
 
 
+@menu.handle()
+async def menu_handle():
+    await menu.finish(Message("指令使用方法如下：\n\n查看角色评分：/ba角评 学生名\n\n查看角色l2d：/ba羁绊 学生名\n\n查看总力战：/ba总力战 boss名\n\n查看最近日程：/ba日程表\n\n查看学生图鉴：/ba学生图鉴 学生名\n\n查询学生语音：/ba语音 学生名\n\n模拟抽卡：\n  1、切换卡池：/ba切换卡池 角色名\n  2、抽卡：/ba抽卡 0-90\n\n查看关卡攻略(只有6后)：\n  NORMAL：/攻略N 关卡数\n  HARD：/攻略H 关卡数"))
+
 @map1.handle()
 async def handle_function(args: Message = CommandArg()):
     if location := args.extract_plain_text():
@@ -80,8 +85,8 @@ async def got_location(location: str = ArgPlainText()):
 @way.handle()
 async def handle_function(args: Message = CommandArg()):
     if location := args.extract_plain_text():
-        await map2.finish(MessageSegment.image(ways[location]))
+        await way.finish(MessageSegment.image(ways[location]))
 
 @way.got("location", prompt="请输入您的问题")
 async def got_location(location: str = ArgPlainText()):
-    await map2.finish(MessageSegment.image(ways[location]))
+    await way.finish(MessageSegment.image(ways[location]))
