@@ -4,6 +4,18 @@ from nonebot.params import ArgPlainText,CommandArg
 
 map1=on_command("攻略N",priority=10,block=True)
 map2=on_command("攻略H",priority=10,block=True)
+way=on_command("攻略",priority=10,block=True)
+
+#千里眼
+clairvoyance=on_command("未来视",aliases={"卡池千里眼","卡池未来视", "千里眼"},priority=10,block=True)
+
+
+@clairvoyance.handle()
+async def _():
+        await clairvoyance.finish(MessageSegment.image("https://cdnimg.gamekee.com/wiki2.0/images/w_2456/h_5304/829/43637/2023/5/2/228349.png"))
+
+
+
 
 #创建字典
 mapn={'6-1':'https://s1.ax1x.com/2023/06/12/pCemYAU.png','6-2':'https://s1.ax1x.com/2023/06/12/pCeKHUK.png','6-3':'https://s1.ax1x.com/2023/06/12/pCe1jFP.png','6-4':'https://s1.ax1x.com/2023/06/12/pCe3SSS.png','6-5':'https://s1.ax1x.com/2023/06/12/pCe3pQg.png',
@@ -44,6 +56,7 @@ maph={'6-1':'https://img1.imgtp.com/2023/06/12/jh5akHeT.png','6-2':'https://img1
       '22-1':'https://img1.imgtp.com/2023/06/12/dXoqFVzY.png','22-2':'https://img1.imgtp.com/2023/06/12/AGRvP84h.png','22-3':'https://img1.imgtp.com/2023/06/12/ww4iJZYz.png',
       '23-1':'https://img1.imgtp.com/2023/06/12/D8284J0F.png','23-2':'https://img1.imgtp.com/2023/06/12/xVuRaLsb.png','23-3':'https://img1.imgtp.com/2023/06/12/ZefhlBM5.png',}
 
+ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg'}
 
 
 @map1.handle()
@@ -63,3 +76,12 @@ async def handle_function(args: Message = CommandArg()):
 @map2.got("location", prompt="请输入关卡名，如6-1")
 async def got_location(location: str = ArgPlainText()):
     await map2.finish(MessageSegment.image(maph[location]))
+
+@way.handle()
+async def handle_function(args: Message = CommandArg()):
+    if location := args.extract_plain_text():
+        await map2.finish(MessageSegment.image(ways[location]))
+
+@way.got("location", prompt="请输入您的问题")
+async def got_location(location: str = ArgPlainText()):
+    await map2.finish(MessageSegment.image(ways[location]))
