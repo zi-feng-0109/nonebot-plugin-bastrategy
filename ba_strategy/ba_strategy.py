@@ -56,7 +56,7 @@ maph={'6-1':'https://img1.imgtp.com/2023/06/12/jh5akHeT.png','6-2':'https://img1
       '22-1':'https://img1.imgtp.com/2023/06/12/dXoqFVzY.png','22-2':'https://img1.imgtp.com/2023/06/12/AGRvP84h.png','22-3':'https://img1.imgtp.com/2023/06/12/ww4iJZYz.png',
       '23-1':'https://img1.imgtp.com/2023/06/12/D8284J0F.png','23-2':'https://img1.imgtp.com/2023/06/12/xVuRaLsb.png','23-3':'https://img1.imgtp.com/2023/06/12/ZefhlBM5.png',}
 
-ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg'}
+ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg','刷初始':'https://img1.imgtp.com/2023/06/20/g8Gin7GP.png'}
 
 
 @map1.handle()
