@@ -5,6 +5,11 @@ from nonebot.params import ArgPlainText,CommandArg
 map1=on_command("攻略N",priority=10,block=True)
 map2=on_command("攻略H",priority=10,block=True)
 way=on_command("攻略",priority=10,block=True)
+
+
+keyword1=on_command("创建nexon",priority=10,block=True)
+keyword2=on_command("创建outlook",priority=10,block=True)
+
 menu=on_command("帮助",aliases={'help','菜单'},priority=10,block=True)
 
 #千里眼
@@ -57,12 +62,24 @@ maph={'6-1':'https://img1.imgtp.com/2023/06/12/jh5akHeT.png','6-2':'https://img1
       '22-1':'https://img1.imgtp.com/2023/06/12/dXoqFVzY.png','22-2':'https://img1.imgtp.com/2023/06/12/AGRvP84h.png','22-3':'https://img1.imgtp.com/2023/06/12/ww4iJZYz.png',
       '23-1':'https://img1.imgtp.com/2023/06/12/D8284J0F.png','23-2':'https://img1.imgtp.com/2023/06/12/xVuRaLsb.png','23-3':'https://img1.imgtp.com/2023/06/12/ZefhlBM5.png',}
 
-ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg','刷初始':'https://img1.imgtp.com/2023/06/20/g8Gin7GP.png'}
+ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg','刷初始':'https://img1.imgtp.com/2023/06/20/g8Gin7GP.png','服务器':'https://img1.imgtp.com/2023/06/20/xgLlUUOO.png'}
+
+
 
 
 @menu.handle()
 async def menu_handle():
-    await menu.finish(Message("指令使用方法如下：\n\n查看角色评分：/ba角评 学生名\n\n查看角色l2d：/ba羁绊 学生名\n\n查看总力战：/ba总力战 boss名\n\n查看最近日程：/ba日程表\n\n查看学生图鉴：/ba学生图鉴 学生名\n\n查询学生语音：/ba语音 学生名\n\n模拟抽卡：\n  1、切换卡池：/ba切换卡池 角色名\n  2、抽卡：/ba抽卡 0-90\n\n查看关卡攻略(只有6后)：\n  NORMAL：/攻略N 关卡数\n  HARD：/攻略H 关卡数"))
+    await menu.finish(Message("指令使用方法如下：\n\n查看角色评分：/ba角评 学生名\n\n查看角色l2d：/ba羁绊 学生名\n\n查看总力战：/ba总力战 boss名\n\n查看最近日程：/ba日程表\n\n查看学生图鉴：/ba学生图鉴 学生名\n\n查询学生语音：/ba语音 学生名\n\n模拟抽卡：\n  1、切换卡池：/ba切换卡池 角色名\n  2、抽卡：/ba抽卡 0-90\n\n查看关卡攻略(只有6后)：\n  NORMAL：/攻略N 关卡数\n  HARD：/攻略H 关卡数\n\n如何创建outlook邮箱：\n  /创建nexon\n\n如何创建nexon账号：\创建nexon\n\n"))
+
+@keyword1.handle()
+async def keyword1_handle():
+    await keyword1.send(Message("感谢原作者子封的博客，本博客的源地址：https://zi-feng-0109.github.io/posts/7e128cf7.html"))
+    await keyword1.finish(MessageSegment.image('https://img1.imgtp.com/2023/06/20/b33KIfed.png'))
+
+@keyword2.handle()
+async def keyword2_handle():
+    await keyword2.send(Message("感谢原作者子封的博客，本博客的源地址：https://zi-feng-0109.github.io/posts/b6ba17ab.html"))
+    await keyword2.finish(MessageSegment.image('https://img1.imgtp.com/2023/06/20/gUM7anXF.png'))
 
 @map1.handle()
 async def handle_function(args: Message = CommandArg()):
