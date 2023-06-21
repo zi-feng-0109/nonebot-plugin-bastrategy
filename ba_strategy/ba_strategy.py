@@ -69,7 +69,7 @@ ways={'配队':'https://img1.imgtp.com/2023/06/20/gmC0P6o5.jpg','刷初始':'htt
 
 @menu.handle()
 async def menu_handle():
-    await menu.finish(Message("指令使用方法如下：\n\n查看角色评分：/ba角评 学生名\n\n查看角色l2d：/ba羁绊 学生名\n\n查看总力战：/ba总力战 boss名\n\n查看最近日程：/ba日程表\n\n查看学生图鉴：/ba学生图鉴 学生名\n\n查询学生语音：/ba语音 学生名\n\n模拟抽卡：\n  1、切换卡池：/ba切换卡池 角色名\n  2、抽卡：/ba抽卡 0-90\n\n查看关卡攻略(只有6后)：\n  NORMAL：/攻略N 关卡数\n  HARD：/攻略H 关卡数\n\n如何创建outlook邮箱：\n  /创建nexon\n\n如何创建nexon账号：\创建nexon\n\n"))
+    await menu.finish(Message("指令使用方法如下：\n\n查看角色评分：/ba角评 学生名\n\n查看角色l2d：/ba羁绊 学生名\n\n查看总力战：/ba总力战 boss名\n\n查看最近日程：/ba日程表\n\n查看学生图鉴：/ba学生图鉴 学生名\n\n查询学生语音：/ba语音 学生名\n\n模拟抽卡：\n  1、切换卡池：/ba切换卡池 角色名\n  2、抽卡：/ba抽卡 0-90\n\n查看关卡攻略(只有6后)：\n  NORMAL：/攻略N 关卡数\n  HARD：/攻略H 关卡数\n\n如何创建outlook邮箱：\n  /创建outlook\n\n如何创建nexon账号：\n  \创建nexon\n\n"))
 
 @keyword1.handle()
 async def keyword1_handle():
