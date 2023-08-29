@@ -12,6 +12,7 @@ checkpoint=on_command("关卡",priority=10,block=True)
 menu=on_command("帮助",aliases={"help","菜单"},priority=10,block=True)
 nickname=on_command("添加外号",priority=10,block=True,permission=GROUP_ADMIN | GROUP_OWNER,)
 delname=on_command("删除外号",priority=10,block=True,permission=GROUP_ADMIN | GROUP_OWNER,)
+total_battle=on_command("总力战",priority=10,block=True,)
 
 ##添加角色外号json的函数
 def add_key_value_to_json(file_path, key, value):
@@ -109,8 +110,12 @@ async def nickname_handle(args: Message = CommandArg()):
      key_value=args.extract_plain_text().split("-")
      key=key_value[0]
      value=key_value[1]
-     add_key_value_to_json('./data/roles.json',key,value)
-     await nickname.finish(Message("【"+key+"】"+"已经添加为学生："+value+"的新外号"))
+     roles=read_json_to_dict("./data/roles.json")
+     if key in roles:
+         await nickname.finish(Message("该外号已经被使用"))
+     else:
+        add_key_value_to_json('./data/roles.json',key,value)
+        await nickname.finish(Message("【"+key+"】"+"已经添加为学生："+value+"的新外号"))
 
 ##删除学生外号
 @delname.handle()
@@ -122,4 +127,17 @@ async def delname_handle(args: Message = CommandArg()):
         await delname.finish(Message("已经成功删除该外号"))
      else:
         await delname.finish(Message("不存在该外号或学生"))
+
+##总力战
+@total_battle.handle()
+async def total_battle_handle(args: Message = CommandArg()):
+    if location := args.extract_plain_text():
+        base_url="https://arona.cdn.diyigemt.com/image/some/"
+        url=base_url+location+"总力.png"
+        await total_battle.finish(MessageSegment.image(url))
+@total_battle.got("location", prompt="请输入:国际服|日服")
+async def got_location(location: str = ArgPlainText()):
+        base_url="https://arona.cdn.diyigemt.com/image/some/"
+        url=base_url+location+"总力.png"
+        await total_battle.finish(MessageSegment.image(url))
 
