@@ -36,11 +36,21 @@ def add_key_value_to_json(file_path, key, value):
 ##读取角色外号
 def read_json_to_dict(file_path):
     # 读取JSON文件并转换为字典
-    with open(file_path, 'r',encoding='utf-8') as file:
-        json_data = file.read()
-    print("已打开文件") 
-    data_dict = json.loads(json_data)
-    print("已读取文件") 
+    try:
+        with open(file_path, 'r',encoding='utf-8') as file:
+            json_data = file.read()
+        print("已打开文件") 
+        data_dict = json.loads(json_data)
+        print("已读取文件")
+    except FileNotFoundError:
+        data={"阿露":"阿露"}
+        with open(file_path, "w",encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False)
+        with open(file_path, 'r',encoding='utf-8') as file:
+            json_data = file.read()
+        print("已打开文件") 
+        data_dict = json.loads(json_data)
+        print("已读取文件")    
     return data_dict
 
 ##删除对应key
