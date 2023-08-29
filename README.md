@@ -1,13 +1,13 @@
-<center>
+<div align="center">
     <img style="width: 30%; height: 30%;" src="https://img1.imgtp.com/2023/08/29/VZhwSkx7.png">
-</center>
-<center>
+</div>
+<div align="center">
     <h1>ba_strategy</h1>
-</center>
+</div>
 
-<center>
+<div align="center">
     <h1>_✨基于nonebot框架的用于碧蓝档案多攻略的插件✨_</h1>
-</center>
+</div>
 
 
 
